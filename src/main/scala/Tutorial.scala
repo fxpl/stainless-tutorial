@@ -3,8 +3,6 @@ import stainless.lang.*
 
 object Tutorial {
 
-  def text(): Unit = {
-    decreases(0)
-  }
+  // You can start writing your code here
 
 }

@@ -53,58 +53,44 @@ object SublistSpecs {
  
   def reflexivity[T](l: List[T]): Unit = {
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l, l)
-  )
+  }.ensuring(sublist(l, l))
  
   def leftTail[T](l1: List[T], l2: List[T]): Unit = {
     require(!l1.isEmpty && sublist(l1, l2))
 
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l1.tail, l2)
-  )
+  }.ensuring(sublist(l1.tail, l2))
  
   def tails[T](l1: List[T], l2: List[T]): Unit = {
     require(!l1.isEmpty && !l2.isEmpty && l1.head == l2.head && sublist(l1, l2))
  
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l1.tail, l2.tail)
-  )
+  }.ensuring(sublist(l1.tail, l2.tail))
  
   /* forall l1 l2 l3, sublist(l1, l2) /\ sublist(l2, l3) ==> sublist(l1, l3) */
   def transitivity[T](l1: List[T], l2: List[T], l3: List[T]): Unit = {
     require(sublist(l1, l2) && sublist(l2, l3))
  
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l1, l3)
-  )
+  }.ensuring(sublist(l1, l3))
  
   def lengthHomomorphism[T](l1: List[T], l2: List[T]): Unit = {
     require(sublist(l1, l2))
  
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    l1.length <= l2.length
-  )
+  }.ensuring(l1.length <= l2.length)
  
   def biggerSublist[T](l1: List[T], l2: List[T]): Unit = {
     require(sublist(l1, l2) && l1.length >= l2.length)
  
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    l1 == l2
-  )
+  }.ensuring(l1 == l2)
  
   def antisymmetry[T](l1: List[T], l2: List[T]): Unit = {
     require(sublist(l1, l2) && sublist(l2, l1))
  
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    l1 == l2
-  )
+  }.ensuring(l1 == l2)
 
   // ++ is the list concatenation operator.
   // It is defined here: 
@@ -112,29 +98,21 @@ object SublistSpecs {
 
   def extendRight[T](l1: List[T], l2: List[T]): Unit = {
     /* TODO: Prove me */
-  }.ensuring(_ => 
-    sublist(l1, l1 ++ l2)  
-  )
+  }.ensuring(sublist(l1, l1 ++ l2))
 
   def extendLeft[T](l1: List[T], l2: List[T]): Unit = {
     /* TODO: Prove me */
-  }.ensuring(_ => 
-    sublist(l2, l1 ++ l2)  
-  )
+  }.ensuring(sublist(l2, l1 ++ l2))
 
   def prepend[T](l: List[T], l1: List[T], l2: List[T]): Unit = {
     require(sublist(l1, l2))
 
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l ++ l1, l ++ l2)  
-  )
+  }.ensuring(sublist(l ++ l1, l ++ l2))
 
   def append[T](l1: List[T], l2: List[T], l: List[T]): Unit = {
     require(sublist(l1, l2))
 
     /* TODO: Prove me */
-  }.ensuring(_ =>
-    sublist(l1 ++ l, l2 ++ l)  
-  )
+  }.ensuring(sublist(l1 ++ l, l2 ++ l))
 }
