@@ -244,6 +244,11 @@ Stainless features a wide range of annotations to make the verification process 
 
 For a full list of available annotations, refer to the [official documentation](https://epfl-lara.github.io/stainless/library.html#annotations).
 
+## Take it further
+
+Now that you have learned the basics, why not put your knowledge into practice?  
+Try completing `Sublist.scala` and apply what you have learned!  
+
 ## FAQ
 
 <details>
