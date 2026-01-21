@@ -158,7 +158,7 @@ If you are familiar with inductive reasoning, you probably know that proving pro
 
 ```scala
 def factorial(n: BigInt): BigInt = {
-  if n == 0 then 1 else factorial(n - 1) * n
+  if n == 0 then BigInt(1) else factorial(n - 1) * n
 }
 ```
 
@@ -168,7 +168,7 @@ If you run Stainless on this code, you will see several warnings, along with a r
 // Stainless automatically finds an appropriate measure: n
 def factorial(n: BigInt): BigInt = {
   require(n >= 0)
-  if n == 0 then 1 else factorial(n - 1) * n
+  if n == 0 then BigInt(1) else factorial(n - 1) * n
 }
 ```
 
@@ -181,7 +181,7 @@ import stainless.lang.*
 def factorial(n: BigInt): BigInt = {
   decreases(n)
   require(n >= 0)
-  if n == 0 then 1 else factorial(n - 1) * n
+  if n == 0 then BigInt(1) else factorial(n - 1) * n
 }
 ```
 
@@ -196,7 +196,7 @@ For simple cases, Stainless can automatically infer the induction step and verif
 ```scala
 def factorial(n: BigInt): BigInt = {
   require(n >= 0)
-  if n == 0 then 1 else factorial(n - 1) * n
+  if n == 0 then BigInt(1) else factorial(n - 1) * n
 }.ensuring(res => res >= 1)
 ```
 
